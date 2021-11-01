@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 @NamedQuery(
         name = "Lemma.findWordsByGivenCriteria",
-        query = "FROM lemma WHERE id BETWEEN :MIN_RANGE AND :MAX_RANGE AND poS = :TYPE"
+        query = "FROM lemma WHERE id BETWEEN :MIN_RANGE AND :MAX_RANGE AND pos = :TYPE"
     //    query = "FROM lemma WHERE id = 1"
 )
 public class Lemma {
