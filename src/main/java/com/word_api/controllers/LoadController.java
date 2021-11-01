@@ -47,6 +47,6 @@ public class LoadController {
 
     @PostMapping("/dropTable")
     public void dropTable(){
-        sqlUtil.runSqlFile("schema.sql");
+        sqlUtil.runSqlFile();
     }
 }

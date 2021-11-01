@@ -17,7 +17,7 @@ public class SqlUtil {
 
     // SQLFileName could be your schema-all.sql
     // inject this class somewhere and call sqlUtil.runSqlFile("schema-all.sql");
-    public void runSqlFile(String SQLFileName) {
+    public void runSqlFile() {
         Resource resource = new PathResource("C:\\Users\\39334\\IdeaProjects\\WordsApi\\src\\main\\resources\\schema.sql");
         EncodedResource encodedResource = new EncodedResource(resource, StandardCharsets.UTF_8);
         try {
