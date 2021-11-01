@@ -25,17 +25,17 @@ public class WordController {
     }
 
     @GetMapping("/listByCriteria")
-    public List<Lemma> getListOfLemmasByGivenCriteria(@RequestParam long difficultyLevel, @RequestParam char type){
+    public List<Lemma> getListOfLemmasByGivenCriteria(@RequestParam long difficultyLevel, @RequestParam String type){
         return service.getListOfWordsByGivenCriteria(difficultyLevel,type);
     }
 
     @GetMapping("/random")
-    public Lemma getRandomWord(@RequestParam long difficultyLevel, @RequestParam char type){
+    public Lemma getRandomWord(@RequestParam long difficultyLevel, @RequestParam String type){
         return service.getRandomLemmaFromList(difficultyLevel,type);
     }
 
     @GetMapping("/random/definition")
-    public WordData getRandomWordAndDefinition(@RequestParam long difficultyLevel, @RequestParam char type){
+    public WordData getRandomWordAndDefinition(@RequestParam long difficultyLevel, @RequestParam String type){
         return this.getSpecificWord(service.getRandomLemmaFromList(difficultyLevel,type).getLemma());
     }
 }

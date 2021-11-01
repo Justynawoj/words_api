@@ -10,7 +10,7 @@ import java.util.List;
 public interface LemmasRepository extends CrudRepository<Lemma, Long> {
 
     @Query
-    List<Lemma> findWordsByGivenCriteria(@Param("MIN_RANGE")long minRange, @Param("MAX_RANGE") long maxRange, @Param("TYPE") char type);
+    List<Lemma> findWordsByGivenCriteria(@Param("MIN_RANGE")long minRange, @Param("MAX_RANGE") long maxRange, @Param("TYPE") String type);
 
     @Override
     List<Lemma> findAll();

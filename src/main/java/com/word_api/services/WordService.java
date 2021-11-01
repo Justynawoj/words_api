@@ -18,14 +18,14 @@ public class WordService {
     @Autowired
     private LemmasRepository lemmasRepository;
 
-    public Lemma getRandomLemmaFromList(long difficultyLevel, char type){
+    public Lemma getRandomLemmaFromList(long difficultyLevel, String type){
         List<Lemma> wordsByGivenCriteria = getListOfWordsByGivenCriteria(difficultyLevel,type);
         Random random = new Random();
         int randomNumber = random.nextInt(wordsByGivenCriteria.size()+1);
         return wordsByGivenCriteria.get(randomNumber);
     }
 
-    public List<Lemma> getListOfWordsByGivenCriteria(long difficultyLevel, char type) {
+    public List<Lemma> getListOfWordsByGivenCriteria(long difficultyLevel, String type) {
 
         int dbSize = lemmasRepository.findAll().size();
         int wordsPerLevel = dbSize / 10;
