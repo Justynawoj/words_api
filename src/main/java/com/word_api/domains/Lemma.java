@@ -15,16 +15,14 @@ import javax.persistence.*;
 
 @NamedQuery(
         name = "Lemma.findWordsByGivenCriteria",
-        query = "FROM lemma WHERE id BETWEEN :MIN_RANGE AND :MAX_RANGE AND pos = :TYPE"
+        query = "FROM lemma WHERE rank_number BETWEEN :MIN_RANGE AND :MAX_RANGE AND pos = :TYPE"
     //    query = "FROM lemma WHERE id = 1"
 )
 public class Lemma {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     @Column
-    private int rank_number;
+    private Long rank_number;
     @Column
     private String lemma;
     @Column
