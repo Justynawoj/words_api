@@ -1,5 +1,6 @@
 package com.word_api.controllers;
 
+import com.word_api.batch.SqlUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -8,6 +9,7 @@ import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteExcep
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +27,9 @@ public class LoadController {
     @Autowired
     Job job;
 
+    @Autowired
+    SqlUtil sqlUtil;
+
     @GetMapping
     public BatchStatus load() throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         Map<String, JobParameter> map = new HashMap<>();
@@ -38,5 +43,10 @@ public class LoadController {
             log.info("Batch is running...");
         }
         return jobExecution.getStatus();
+    }
+
+    @PostMapping("/dropTable")
+    public void dropTable(){
+        sqlUtil.runSqlFile("schema.sql");
     }
 }

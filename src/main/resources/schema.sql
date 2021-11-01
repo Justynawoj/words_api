@@ -1,10 +1,10 @@
+DROP TABLE IF EXISTS LEMMA;
 
-drop table lemma;
-create table LEMMA(
-id BIGINT,
-rankNumber INTEGER,
+CREATE TABLE LEMMA
+(id BIGINT not null auto_increment primary key,
+rank_number INTEGER,
 lemma VARCHAR(255),
-poS VARCHAR(255),
+pos VARCHAR(255),
 freq DOUBLE
 );
 
