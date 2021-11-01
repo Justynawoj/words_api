@@ -19,19 +19,20 @@ import javax.persistence.*;
     //    query = "FROM lemma WHERE id = 1"
 )
 public class Lemma {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private int rankNumber;
+    private int rank_number;
     @Column
     private String lemma;
     @Column
-    private String poS;
+    private String pos;
     @Column
     private double freq;
 
     public static String[] fields(){
-        return new String[]{"rankNumber","lemma","poS","freq"};
+        return new String[]{"rank_number","lemma","pos","freq"};
     }
 }
